@@ -2,6 +2,14 @@
 
 Install and run [MySQL server](http://www.mysql.com) under the current user inside of the application directory.
 
+MySQL requires `libaio`. To install on ubuntu, use the following command:
+
+```
+sudo apt-get install libaio1
+```
+
+Then you may install and use this package:
+
 ```
 npm install mysql-server-5.6-linux-x86_64
 ```
@@ -14,7 +22,7 @@ Provides function for spawning MySQL server instance with optional configuration
 ```javascript
 var startMysql = require('mysql-server-5.6-linux-x86_64');
 
-var mysqld = startServer({ port: 3307 });
+var mysqld = startMysql({ port: 3307 });
 
 mysqld.stdout.on('data', function (data) {
   console.log('stdout: ' + data);
