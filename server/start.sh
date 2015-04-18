@@ -1,2 +1,3 @@
 cd ${0%/*}
-./mysqld --defaults-file=my.cnf
+mkdir -p data/tmp
+LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./mysqld --defaults-file=my.cnf
