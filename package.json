@@ -1,0 +1,33 @@
+{
+  "name": "mysql-server-5.6-linux-x86_64",
+  "version": "5.6.24",
+  "description": "MySQL Server 5.6 for Linux x86 64-bit",
+  "author": "Ben Green <ben@latenightsketches.com> (https://numtel.github.io)",
+  "license": "GPLv2",
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "keywords": [
+    "mysql",
+    "server",
+    "binary",
+    "log"
+  ],
+  "repository": "https://github.com/numtel/mysql-server-5.6-linux-x86_64.git",
+  "scripts": {
+    "test": "PORT=3358 nodeunit test/index.js"
+  },
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "extend": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.9.1"
+  }
+}
