@@ -1,5 +1,5 @@
 {
-  "name": "mysql-server-5.6-linux-x86_64",
+  "name": "mysql-server-5.6-linux-x64",
   "version": "5.6.24",
   "description": "MySQL Server 5.6 for Linux x86 64-bit",
   "author": "Ben Green <ben@latenightsketches.com> (https://numtel.github.io)",
@@ -16,7 +16,7 @@
     "binary",
     "log"
   ],
-  "repository": "https://github.com/numtel/mysql-server-5.6-linux-x86_64.git",
+  "repository": "https://github.com/numtel/mysql-server-5.6-linux-x64.git",
   "scripts": {
     "test": "PORT=3358 nodeunit test/index.js"
   },

@@ -13,9 +13,9 @@ var defaultConfig = {
   expire_logs_days        : 10,
   max_binlog_size         : '100M',
   // Settings related to this package's directory structure
+  // tmpdir set in server/start.sh
   basedir                 : './',
   datadir                 : './data/mysql',
-  tmpdir                  : './data/tmp',
   socket                  : './mysql.sock',
   pid_file                : './mysql.pid',
   // Other settings
@@ -31,7 +31,11 @@ module.exports = function(config) {
   // Generate my.cnf from provided configuration
   var myCnf = '[mysqld]\n' +
     Object.keys(fullConfig).map(function(key) {
-      return key + ' = ' + fullConfig[key]
+      if(fullConfig[key] === null || fullConfig[key] === undefined) {
+        return ''
+      } else {
+        return key + ' = ' + fullConfig[key]
+      }
     }).join('\n');
 
   fs.writeFileSync('server/my.cnf', myCnf);
