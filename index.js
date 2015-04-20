@@ -38,16 +38,16 @@ module.exports = function(config) {
       }
     }).join('\n');
 
-  fs.writeFileSync('server/my.cnf', myCnf);
+  fs.writeFileSync(path.join(__dirname, 'server/my.cnf'), myCnf);
 
   // Did not work spawning mysqld directly from node, therefore shell script
-  var child = spawn('server/start.sh');
+  var child = spawn(path.join(__dirname, 'server/start.sh'));
   
   // Server pid is different than the spawned child pid becuase of shell script
   // Provide extra method on child process to stop the server
   child.stop = function() {
-    var pid =
-      parseInt(fs.readFileSync(path.join('server', fullConfig.pid_file)), 10);
+    var pidFile = path.join(__dirname, 'server', fullConfig.pid_file);
+    var pid = parseInt(fs.readFileSync(pidFile), 10);
     process.kill(pid);
   };
 
