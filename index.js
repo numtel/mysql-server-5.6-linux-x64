@@ -54,4 +54,7 @@ module.exports = function(config) {
   return child
 }
 
-
+// Provide package directory for external use
+module.exports.pkgdir = function() {
+  return __dirname
+}
